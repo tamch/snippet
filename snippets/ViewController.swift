@@ -11,9 +11,11 @@ import UIKit
 class ViewController: UIViewController {
     
     var data: [SnippetData] = [SnippetData]()
+    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePicker.delegate = self
 
     }
     
@@ -23,7 +25,7 @@ class ViewController: UIViewController {
             self.createNewTextSnippet()
         }
         let photoAction = UIAlertAction(title: "Photo", style: .default) { (alert: UIAlertAction!) -> Void in
-            self.data.append(SnippetData(snippetType: .photo))
+            self.createNewPhotoSnippet()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
@@ -47,5 +49,21 @@ class ViewController: UIViewController {
         
         present(textEntryVC,animated:true, completion:nil)
     }
+    
+    func createNewPhotoSnippet () {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+            print ("Camera is not available")
+            return
+        }
+        
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .camera
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+}
+
+extension ViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
 }
 
