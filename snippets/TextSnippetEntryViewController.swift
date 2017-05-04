@@ -11,6 +11,7 @@ import UIKit
 class TextSnippetEntryViewController: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
+    var shouldExit = false
     
     var saveText: (_ text: String) -> Void = { (text:String) in }
     
@@ -31,6 +32,7 @@ class TextSnippetEntryViewController: UIViewController {
         return keyboardToolbar
     }
     
+
     func doneButtonPressed() {
         textView.resignFirstResponder()
     }

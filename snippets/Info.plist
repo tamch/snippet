@@ -24,8 +24,10 @@
 	<true/>
 	<key>CFBundleSignature</key>
 	<string></string>
-	<key>Privacy - Camera Usage Description </key>
+	<key>NSCameraUsageDescription</key>
 	<string>Snippets needs to access the camera to create photo snippets.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Adds location information to a new snippet when it is created</string>
 	<key>NSHumanReadableCopyright</key>
 	<string></string>
 	<key>LSApplicationCategoryType</key>
