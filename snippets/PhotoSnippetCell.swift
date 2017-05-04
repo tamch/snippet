@@ -12,4 +12,12 @@ class PhotoSnippetCell : UITableViewCell {
     
     @IBOutlet var photo: UIImageView!
     @IBOutlet var date: UILabel!
+    
+    var shareButton: (() -> Void)?
+    @IBAction func shareButtonPressed(_ sender: Any) {
+        print("Tweet button pressed from Photo")
+        if let callback = shareButton {
+            callback()
+        }
+    }
 }

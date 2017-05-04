@@ -37,7 +37,7 @@
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5D7-6Q-bnu">
-                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="19" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,12 +58,21 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jjd-0s-4FT">
                                                     <rect key="frame" x="0.0" y="56" width="375" height="24"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KwE-8M-9xp">
-                                                            <rect key="frame" x="8" y="0.0" width="359" height="24"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KwE-8M-9xp">
+                                                            <rect key="frame" x="8" y="0.0" width="299" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Mp-8q-YNQ">
+                                                            <rect key="frame" x="317" y="-3" width="48" height="30"/>
+                                                            <state key="normal" title="Twitter">
+                                                                <color key="titleColor" red="0.92549020049999997" green="0.23529411850000001" blue="0.1019607857" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="shareButtonPressed:" destination="qOI-ls-Ua5" eventType="touchDown" id="AjP-Hr-izJ"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -71,7 +80,9 @@
                                                         <constraint firstItem="KwE-8M-9xp" firstAttribute="leading" secondItem="Jjd-0s-4FT" secondAttribute="leading" constant="8" id="FCW-br-hci"/>
                                                         <constraint firstAttribute="bottom" secondItem="KwE-8M-9xp" secondAttribute="bottom" id="eiz-u4-KG6"/>
                                                         <constraint firstItem="KwE-8M-9xp" firstAttribute="top" secondItem="Jjd-0s-4FT" secondAttribute="top" id="hFU-ov-JGZ"/>
+                                                        <constraint firstItem="6Mp-8q-YNQ" firstAttribute="centerY" secondItem="Jjd-0s-4FT" secondAttribute="centerY" id="rcW-gP-7Xm"/>
                                                         <constraint firstAttribute="trailing" secondItem="KwE-8M-9xp" secondAttribute="trailing" constant="8" id="slT-ie-YAy"/>
+                                                        <constraint firstAttribute="trailing" secondItem="6Mp-8q-YNQ" secondAttribute="trailing" constant="10" id="u75-TR-9Dq"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -112,13 +123,24 @@
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUg-eZ-zvY">
+                                                            <rect key="frame" x="317" y="-3" width="48" height="30"/>
+                                                            <state key="normal" title="Twitter">
+                                                                <color key="titleColor" red="0.92549020049999997" green="0.23529411850000001" blue="0.1019607857" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="shareButtonPressed:" destination="MJC-rg-Jsd" eventType="touchDown" id="Vg3-Kf-oy9"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="1u5-gY-aGn" firstAttribute="top" secondItem="DoV-u4-2aw" secondAttribute="top" id="1LF-6D-jJQ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="eUg-eZ-zvY" secondAttribute="trailing" constant="10" id="3lP-Xh-Tn3"/>
                                                         <constraint firstItem="1u5-gY-aGn" firstAttribute="leading" secondItem="DoV-u4-2aw" secondAttribute="leading" constant="8" id="Q3h-2f-kxh"/>
                                                         <constraint firstAttribute="height" constant="24" id="saN-6m-tQe"/>
                                                         <constraint firstAttribute="trailing" secondItem="1u5-gY-aGn" secondAttribute="trailing" constant="8" id="sml-T1-lid"/>
+                                                        <constraint firstItem="eUg-eZ-zvY" firstAttribute="centerY" secondItem="DoV-u4-2aw" secondAttribute="centerY" id="wsH-Bb-JZg"/>
                                                         <constraint firstAttribute="bottom" secondItem="1u5-gY-aGn" secondAttribute="bottom" id="x86-4h-BGQ"/>
                                                     </constraints>
                                                 </view>
@@ -152,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-150" y="37"/>
+            <point key="canvasLocation" x="-151.19999999999999" y="36.431784107946029"/>
         </scene>
         <!--Text Snippet Entry View Controller-->
         <scene sceneID="wkk-cW-qrc">

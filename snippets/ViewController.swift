@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Social
 
 class ViewController: UIViewController {
     
@@ -129,11 +130,51 @@ extension ViewController: UITableViewDataSource {
             cell = tableView.dequeueReusableCell(withIdentifier: "textSnippetCell", for: indexPath)
             (cell as! TextSnippetCell).label.text = (snippetData as! TextData).textData
             (cell as! TextSnippetCell).date.text = dateString
-            
+            (cell as! TextSnippetCell).shareButton = {
+                if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter) {
+                    let text = (snippetData as! TextData).textData
+                    guard let twVC = SLComposeViewController(forServiceType: SLServiceTypeTwitter) else {
+                        print("Couldn't create twitter compose controller")
+                        return
+                    }
+                    if text.characters.count <= 140 {
+                        twVC.setInitialText("\(text)")
+                    } else {
+                        let tweetLengthIndex = text.index(text.startIndex, offsetBy: 140)
+                        let tweetChars = text.substring(to: tweetLengthIndex)
+                        twVC.setInitialText("\(tweetChars)")
+                    }
+                    self.present(twVC, animated: true, completion: nil)
+                }
+                else {
+                    let alert = UIAlertController(title: "You are not logged into twitter", message: "Please log into Twitter from the iOS Settings app.", preferredStyle: .alert)
+                    let dismissAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alert.addAction(dismissAction)
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         case .photo:
             cell = tableView.dequeueReusableCell(withIdentifier: "photoSnippetCell", for: indexPath)
             (cell as! PhotoSnippetCell).photo.image = (snippetData as! PhotoData).photoData
             (cell as! PhotoSnippetCell).date.text = dateString
+            (cell as! PhotoSnippetCell).shareButton = {
+                if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter) {
+                    let photo = (snippetData as! PhotoData).photoData
+                    guard let twVC = SLComposeViewController(forServiceType: SLServiceTypeTwitter) else {
+                        print("Couldn't create twitter compose controller")
+                        return
+                    }
+                    twVC.setInitialText("Sent from Snippets™")
+                    twVC.add(photo)
+                    self.present(twVC, animated: true, completion: nil)
+                }
+                else {
+                    let alert = UIAlertController(title: "You are not logged into twitter", message: "Please log into Twitter from the iOS Settings app.", preferredStyle: .alert)
+                    let dismissAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alert.addAction(dismissAction)
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         }
         
         return cell
