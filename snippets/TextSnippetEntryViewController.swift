@@ -34,13 +34,16 @@ class TextSnippetEntryViewController: UIViewController {
     
 
     func doneButtonPressed() {
+        shouldExit = true
         textView.resignFirstResponder()
     }
     
 }
 extension TextSnippetEntryViewController : UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
+        guard shouldExit else { return }
+        
         saveText(textView.text)
-        dismiss(animated: true, completion: nil)
+        dismiss(animated:true, completion: nil)
     }
 }

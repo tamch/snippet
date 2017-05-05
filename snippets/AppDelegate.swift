@@ -12,11 +12,42 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    enum ShortcutItems : String {
+        case newText = "sap.snippets.createTextSnippet"
+        case newPhoto = "sap.snippets.createPhotoSnippet"
+    }
 
+    func handleShortcut(_ shortcutItem: UIApplicationShortcutItem) {
+        switch shortcutItem.type {
+        case ShortcutItems.newText.rawValue:
+            let vc = self.window!.rootViewController as! ViewController
+            vc.createNewTextSnippet()
+            
+        case ShortcutItems.newPhoto.rawValue:
+            let vc = self.window!.rootViewController as! ViewController
+            vc.createNewPhotoSnippet()
+            
+        default:
+            break
+        }
+    }
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        let vc = self.window!.rootViewController!
+        if vc.presentedViewController != nil {
+            let alert = UIAlertController(title: "Unfinished Snippet", message: "Do you want to continue creating this snippet, or erase and start a new snippet?", preferredStyle: .alert)
+            let continueAction = UIAlertAction(title: "Continue", style: .default, handler: nil)
+            let eraseAction = UIAlertAction(title: "Erase", style: .destructive) { (alert: UIAlertAction!) -> Void in
+                vc.dismiss(animated: true, completion: nil)
+                self.handleShortcut(shortcutItem)
+            }
+            
+            alert.addAction(continueAction)
+            alert.addAction(eraseAction)
+            vc.presentedViewController!.present(alert, animated: true, completion: nil)
+        } else {
+            handleShortcut(shortcutItem)
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
