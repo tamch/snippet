@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A191BA01EBDDE6200A537A2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A191B9F1EBDDE6200A537A2 /* CoreData.framework */; };
+		8A191BA31EC014B100A537A2 /* SnippetData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A191BA11EC014B100A537A2 /* SnippetData.xcdatamodeld */; };
 		8A1F564E1EBB1233009D1A8B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1F564D1EBB1233009D1A8B /* Social.framework */; };
 		8A801C601EB092DA008DABF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A801C5F1EB092DA008DABF4 /* AppDelegate.swift */; };
 		8A801C621EB092DA008DABF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A801C611EB092DA008DABF4 /* ViewController.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A191B9F1EBDDE6200A537A2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8A191BA21EC014B100A537A2 /* SnippetData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SnippetData.xcdatamodel; sourceTree = "<group>"; };
 		8A1F564D1EBB1233009D1A8B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		8A801C5C1EB092DA008DABF4 /* snippets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snippets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A801C5F1EB092DA008DABF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A191BA01EBDDE6200A537A2 /* CoreData.framework in Frameworks */,
 				8A1F564E1EBB1233009D1A8B /* Social.framework in Frameworks */,
 				8AE7551A1EBB0769002B04A7 /* CoreLocation.framework in Frameworks */,
 			);
@@ -72,6 +77,7 @@
 				8A801C711EB09347008DABF4 /* SnippetData.swift */,
 				8A801C751EB2E429008DABF4 /* TextSnippetEntryViewController.swift */,
 				8A801C5F1EB092DA008DABF4 /* AppDelegate.swift */,
+				8A191BA11EC014B100A537A2 /* SnippetData.xcdatamodeld */,
 				8A801C611EB092DA008DABF4 /* ViewController.swift */,
 				8AD8E7341EB81E710098DCB8 /* TextSnippetCell.swift */,
 				8AE755111EB96CE6002B04A7 /* Main.storyboard */,
@@ -86,6 +92,7 @@
 		8AE755181EBB0769002B04A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A191B9F1EBDDE6200A537A2 /* CoreData.framework */,
 				8A1F564D1EBB1233009D1A8B /* Social.framework */,
 				8AE755191EBB0769002B04A7 /* CoreLocation.framework */,
 			);
@@ -167,6 +174,7 @@
 			files = (
 				8AD8E7351EB81E710098DCB8 /* TextSnippetCell.swift in Sources */,
 				8A801C761EB2E429008DABF4 /* TextSnippetEntryViewController.swift in Sources */,
+				8A191BA31EC014B100A537A2 /* SnippetData.xcdatamodeld in Sources */,
 				8A801C621EB092DA008DABF4 /* ViewController.swift in Sources */,
 				8A801C601EB092DA008DABF4 /* AppDelegate.swift in Sources */,
 				8AD8E7371EB824D50098DCB8 /* PhotoSnippetCell.swift in Sources */,
@@ -331,6 +339,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8A191BA11EC014B100A537A2 /* SnippetData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8A191BA21EC014B100A537A2 /* SnippetData.xcdatamodel */,
+			);
+			currentVersion = 8A191BA21EC014B100A537A2 /* SnippetData.xcdatamodel */;
+			path = SnippetData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8A801C541EB092DA008DABF4 /* Project object */;
 }
